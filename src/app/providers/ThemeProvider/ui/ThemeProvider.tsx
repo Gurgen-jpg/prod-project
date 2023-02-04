@@ -1,5 +1,5 @@
 import React, {FC, useMemo, useState} from 'react';
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from "./ThemeContext.tx";
+import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from "../lib/ThemeContext.tx";
 
 
 //Можно сделать преобразование типа с помощью "as"
