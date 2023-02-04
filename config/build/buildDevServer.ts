@@ -5,7 +5,8 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     return {
         port: options.port,
         open: true,
-        //проксировать через index всё SPA
         // historyApiFallback: true,
+        //проксировать через index всё SPA
+        historyApiFallback: true,
     }
 }
