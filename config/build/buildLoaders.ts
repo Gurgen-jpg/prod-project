@@ -7,6 +7,11 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     //Если использовать ts то этого дастаточно, если использовать jsx, то нужен babel-loader
     const {isDev} = options;
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -35,9 +40,21 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
             "sass-loader",
         ],
     }
+    const fileLoader =   {
+            test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
+        }
 
     return  [
+        fileLoader,
+        svgLoader,
         typescriptLoader,
         cssLoader,
+
+
     ]
 }
