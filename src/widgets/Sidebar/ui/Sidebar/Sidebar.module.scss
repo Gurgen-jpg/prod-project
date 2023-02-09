@@ -8,6 +8,10 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  align-items: center;
 }
 
 .switchers {
@@ -16,4 +20,10 @@
   bottom: 20px;
   display: flex;
   justify-content: center;
+}
+.lang{
+  margin-left: 20px;
+}
+.lang_collapsed {
+  margin: 0;
 }

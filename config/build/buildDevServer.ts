@@ -8,5 +8,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         // historyApiFallback: true,
         //проксировать через index всё SPA
         historyApiFallback: true,
+        hot: true
     }
 }
