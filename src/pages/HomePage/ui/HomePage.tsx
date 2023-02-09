@@ -5,7 +5,7 @@ const HomePage = () => {
     const {t} = useTranslation('home');
     return (
         <div>
-            {t('Главная страница')}
+            {t('home')}
         </div>
     );
 };

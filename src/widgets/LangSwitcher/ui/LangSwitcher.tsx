@@ -18,7 +18,7 @@ export const LangSwitcher = ({className}: LangSwitcherProps) => {
             className={classNames(style.LangSwitcher, {}, [className])}
             onClick={onClickHandler}
         >
-            {t('язык')}
+            {t('language')}
 
         </Button>
     )
