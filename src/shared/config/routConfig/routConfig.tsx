@@ -3,17 +3,17 @@ import {HomePage} from "pages/HomePage";
 import {AboutPage} from "pages/AboutPage";
 
 export enum AppRoutes {
-    MAIN = 'home',
+    MAIN = '/',
     ABOUT = 'about',
 }
 export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/home',
+    [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
 }
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN] : {
-        path: RoutePath.home,
+        path: RoutePath["/"],
         element: <HomePage/>
     },
     [AppRoutes.ABOUT] : {
