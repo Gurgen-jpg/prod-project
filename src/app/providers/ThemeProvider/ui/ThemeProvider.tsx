@@ -1,20 +1,17 @@
-import React, {FC, useMemo, useState} from 'react';
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from "../lib/ThemeContext";
+import React, { FC, useMemo, useState } from 'react';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 
-
-//Можно сделать преобразование типа с помощью "as"
+// Можно сделать преобразование типа с помощью "as"
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
-const ThemeProvider: FC = ({children}) => {
+const ThemeProvider: FC = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-
-
-    //чтобы каждый не пересоздовать объект лучше обернуть его useMemo и передать
+    // чтобы каждый не пересоздовать объект лучше обернуть его useMemo и передать
     const defaultProps = useMemo(() => ({
-        theme: theme,
-        setTheme: setTheme
-    }), [theme])
+        theme,
+        setTheme,
+    }), [theme]);
 
     return (
         <ThemeContext.Provider value={defaultProps}>
