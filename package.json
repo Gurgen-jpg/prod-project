@@ -8,7 +8,10 @@
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix"
+    "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:scss": "npx stylelint \"**/*.{scss,js}\"",
+    "lint:scss:fix": "npx stylelint \"**/*.{scss,js}\" --fix"
+
   },
   "keywords": [],
   "author": "Gurgen",
@@ -41,6 +44,8 @@
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard-scss": "^6.1.0",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.6.4",
