@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strictNullChecks": false,
     "outDir": "./dist",
     "noImplicitAny": true,
     "module": "ESNext",

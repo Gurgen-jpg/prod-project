@@ -1,14 +1,13 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import webpack, {WebpackPluginInstance} from "webpack";
-import {BuildOptions} from "./types/config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack, { WebpackPluginInstance } from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BuildOptions } from './types/config';
 
-
-export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
-            title: "my app",
+            title: 'my app',
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
@@ -20,5 +19,5 @@ export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstanc
             _IS_DEV_: JSON.stringify(isDev),
         }),
         new ReactRefreshWebpackPlugin(),
-    ]
+    ];
 }
