@@ -27,6 +27,7 @@ module.exports = {
         quotes: [0],
         'max-len': ["error", { code: 200, ignoreUrls: true, ignoreComments: true }],
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'arrow-body-style': [0],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
