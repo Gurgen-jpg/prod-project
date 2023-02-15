@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "strictNullChecks": false,
-    "outDir": "./dist",
+    "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "ES5",
@@ -16,12 +16,15 @@
     //esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакетами с помощью import require() module.export
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strictNullChecks": false
+    "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./config/jest/setupTests.ts",
+    "src/**/*"
+  ]
 }

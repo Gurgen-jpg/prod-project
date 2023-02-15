@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/ui/classNames';
 import React from "react";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import ThemeLight from 'shared/assets/icons/ThemeLight.svg';

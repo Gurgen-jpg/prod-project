@@ -7,7 +7,7 @@ export default {
     clearMocks: true,
     testEnvironment: "jsdom",
     coveragePathIgnorePatterns: [
-        "\\\\node_modules\\\\",
+        "/node_modules/",
     ],
     moduleDirectories: ["node_modules"],
     moduleFileExtensions: [
@@ -18,16 +18,19 @@ export default {
         "json",
         "node",
     ],
-    // The root directory that Jest should scan for tests and modules within
+
     rootDir: '../../',
-    // A list of paths to directories that Jest should use to search for files in
-    // roots: [
-    //     "<rootDir>",
-    // ],
-    // The glob patterns Jest uses to detect test files
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
     testMatch: [
         "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
     ],
+    modulePaths: [
+        '<rootDir>src',
+        'node_modules',
+    ],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 

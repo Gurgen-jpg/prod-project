@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib/classNames/ui/classNames";
 import { useTranslation } from "react-i18next";
 import style from './NodFoundPage.module.scss';
 

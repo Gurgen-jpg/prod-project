@@ -9,13 +9,18 @@ module.exports = {
         'airbnb',
     ],
     parser: '@typescript-eslint/parser',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
+    overrides: [
+        {
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+                ecmaVersion: 'latest',
+                sourceType: 'module',
+            },
+            files: ['*.ts', '*.tsx'],
         },
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-    },
+    ],
     plugins: [
         'react',
         '@typescript-eslint',
