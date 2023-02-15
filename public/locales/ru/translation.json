@@ -2,5 +2,7 @@
   "language": "язык",
   "Home": "Главная",
   "About": "О нас",
-  "Page not found": "Страница не найдена"
+  "Page not found": "Страница не найдена",
+  "Something went wrong": "Что-то пощло не так!",
+  "Reload": "Перезагрузить"
 }
