@@ -23,7 +23,7 @@ jobs:
       - name: build production project
         run: npm run build:prod
       - name: storybook build
-        run: storybook:build
+        run: npm run storybook:build
       - name: linting typescript
         run: npm run lint:ts
       - name: linting css
@@ -31,4 +31,4 @@ jobs:
       - name: unit testing
         run: npm run test:unit
       - name: loki test
-        run: test:ui:ci
+        run: npm run test:ui:ci
