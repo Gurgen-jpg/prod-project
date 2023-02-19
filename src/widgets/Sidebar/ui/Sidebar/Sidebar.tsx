@@ -33,7 +33,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 toggle
             </button>
-            <div className={classNames(style.switchers, { [style.collapsed]: collapsed }, [])}>
+            <div className={
+                classNames(style.switchers, { [style.collapsed]: collapsed }, [])
+            }
+            >
                 <ThemeSwitcher />
                 <LangSwitcher className={classNames(style.lang, { [style.lang_collapsed]: collapsed }, [])} />
             </div>
