@@ -27,19 +27,39 @@ Clear.args = {
     theme: ButtonTheme.CLEAR,
 };
 export const Outline = Template.bind({});
-
 Outline.args = {
     children: 'Button',
     theme: ButtonTheme.OUTLINE,
 };
-export const OutlineDark = Template.bind({});
 
+export const OutlineSizeL = Template.bind({});
+OutlineSizeL.args = {
+    children: 'Button',
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.LARGE,
+};
+
+export const OutlineSizeM = Template.bind({});
+OutlineSizeM.args = {
+    children: 'Button',
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.MEDIUM,
+};
+
+export const OutlineSizeXl = Template.bind({});
+OutlineSizeXl.args = {
+    children: 'Button',
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.XLARGE,
+};
+
+export const OutlineDark = Template.bind({});
 OutlineDark.args = {
     children: 'Button',
     theme: ButtonTheme.OUTLINE,
 };
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     children: 'Button',

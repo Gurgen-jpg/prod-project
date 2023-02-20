@@ -6,14 +6,6 @@
   position: relative;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-  display: flex;
-  flex-direction: column;
-  column-gap: 5px;
-  align-items: center;
-}
-
 .switchers {
   width: 100%;
   position: absolute;
@@ -34,4 +26,31 @@
   position: absolute;
   right: -40px;
   bottom: 40px;
+}
+
+.links {
+  margin: 20px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.icon {
+  display: flex;
+  gap: 5px;
+  fill: var(--bg-color);
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  align-items: center;
+
+  .link {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.2s;
+  }
 }

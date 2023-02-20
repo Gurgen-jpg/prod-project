@@ -1,6 +1,7 @@
 .Button {
   cursor: pointer;
   color: var(--primary-color);
+  padding: 10px;
 }
 
 .clear {
@@ -11,7 +12,6 @@
 }
 
 .outline {
-  padding: 10px;
   background: none;
   border: 1px solid var(--primary-color);
 }
@@ -45,4 +45,16 @@
 .square.xlarge {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
+}
+
+.medium {
+  font-size: var(--font-size-m);
+}
+
+.large {
+  font-size: var(--font-size-l);
+}
+
+.xlarge {
+  font-size: var(--font-size-xl);
 }
