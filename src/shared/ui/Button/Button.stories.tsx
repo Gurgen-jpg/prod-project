@@ -2,7 +2,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Button, ThemeButton } from "./Button";
+import {
+    Button, ButtonSize, ButtonTheme,
+} from "./Button";
 
 export default {
     title: 'Shared/Button',
@@ -22,16 +24,55 @@ Primary.args = {
 export const Clear = Template.bind({});
 Clear.args = {
     children: 'Button',
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
 };
 export const Outline = Template.bind({});
+
 Outline.args = {
     children: 'Button',
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
 };
 export const OutlineDark = Template.bind({});
+
 OutlineDark.args = {
     children: 'Button',
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundTheme = Template.bind({});
+BackgroundTheme.args = {
+    children: 'Button',
+    theme: ButtonTheme.BACKGROUND,
+};
+
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
+    children: 'Button',
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    square: false,
+};
+
+export const SquareL = Template.bind({});
+SquareL.args = {
+    children: '>',
+    theme: ButtonTheme.BACKGROUND,
+    square: true,
+    size: ButtonSize.LARGE,
+};
+
+export const SquareM = Template.bind({});
+SquareM.args = {
+    children: '>',
+    theme: ButtonTheme.BACKGROUND,
+    square: true,
+    size: ButtonSize.MEDIUM,
+};
+
+export const SquareXL = Template.bind({});
+SquareXL.args = {
+    children: '>',
+    theme: ButtonTheme.BACKGROUND,
+    square: true,
+    size: ButtonSize.XLARGE,
+};
