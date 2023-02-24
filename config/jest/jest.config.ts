@@ -6,30 +6,34 @@
 import path from "path";
 
 export default {
+    globals: {
+        _IS_DEV_: true,
+    },
     clearMocks: true,
-    testEnvironment: "jsdom",
+    testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
-        "/node_modules/",
+        '\\\\node_modules\\\\',
     ],
-    moduleDirectories: ["node_modules"],
     moduleFileExtensions: [
-        "js",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node",
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node',
     ],
-
-    rootDir: '../../',
-    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
-    testMatch: [
-        "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
+    moduleDirectories: [
+        'node_modules',
     ],
     modulePaths: [
         '<rootDir>src',
-        'node_modules',
     ],
+    testMatch: [
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),

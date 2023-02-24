@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import React from "react";
+import { StoreDecorator } from "shared/config/storybook/WithStore/WithStore";
 import HomePage from "./HomePage";
 
 export default {
