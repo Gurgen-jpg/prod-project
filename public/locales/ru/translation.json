@@ -6,5 +6,7 @@
   "Something went wrong": "Что-то пощло не так!",
   "Reload": "Перезагрузить",
   "lang": "анг.",
-  "sing in": "войти"
+  "sing in": "войти",
+  "login": "логин",
+  "password": "пароль"
 }

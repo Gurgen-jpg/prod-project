@@ -9,6 +9,9 @@
   "about": "about",
   "home": "home",
   "language": "language",
+  "login": "login",
+  "password": "password",
   "sing in": "sing in",
-  "Перезагрузить": "Перезагрузить"
+  "Перезагрузить": "Перезагрузить",
+  "введите имя": "введите имя"
 }
