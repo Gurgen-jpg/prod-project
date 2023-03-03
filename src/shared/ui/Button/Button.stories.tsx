@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React from "react";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import React from "react";
+// import { Theme } from "app/providers/ThemeProvider";
+import { DecoratorTheme } from "shared/config/storybook/ThemeDecorator/DecoratorTheme";
 import {
     Button, ButtonSize, ButtonTheme,
 } from "./Button";
@@ -65,8 +66,8 @@ OutlineDark.args = {
     children: 'Button',
     theme: ButtonTheme.OUTLINE,
 };
+OutlineDark.decorators = [DecoratorTheme(Theme.DARK)];
 
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     children: 'Button',
@@ -102,4 +103,11 @@ SquareXL.args = {
     theme: ButtonTheme.BACKGROUND,
     square: true,
     size: ButtonSize.XLARGE,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'disabled',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
 };

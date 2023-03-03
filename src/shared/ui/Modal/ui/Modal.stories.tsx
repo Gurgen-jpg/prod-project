@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import { DecoratorTheme } from "shared/config/storybook/ThemeDecorator/DecoratorTheme";
 import { Modal } from "./Modal";
 
 export default {
@@ -25,4 +25,4 @@ Dark.args = {
     children: ' rfrfjqnj ntrcn vfnm tuj pof yjue  rfrfjqnj ntrcn vfnm tuj pof yjue  rfrfjqnj ntrcn vfnm tuj pof yjue  rfrfjqnj ntrcn vfnm tuj pof yjue  rfrfjqnj ntrcn vfnm tuj pof yjue ',
     isOpen: true,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [DecoratorTheme(Theme.DARK)];

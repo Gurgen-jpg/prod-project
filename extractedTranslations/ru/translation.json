@@ -1,5 +1,6 @@
 {
   "About": "About",
+  "Auth form": "Auth form",
   "Home": "Home",
   "Page not found": "Page not found",
   "Reload": "Reload",
@@ -12,6 +13,8 @@
   "login": "login",
   "password": "password",
   "sing in": "sing in",
+  "sing out": "sing out",
+  "wrong password or username": "wrong password or username",
   "Перезагрузить": "Перезагрузить",
   "введите имя": "введите имя"
 }

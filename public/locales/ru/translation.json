@@ -8,5 +8,8 @@
   "lang": "анг.",
   "sing in": "войти",
   "login": "логин",
-  "password": "пароль"
+  "password": "пароль",
+  "Auth form": "Форма авторизации",
+  "wrong password or username": "неверный пароль или имя пользователя",
+  "sing out": "выйти"
 }

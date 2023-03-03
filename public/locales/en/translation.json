@@ -8,5 +8,8 @@
   "lang": "ru",
   "sing in": "sing in",
   "login": "login",
-  "password": "password"
+  "password": "password",
+  "Auth form": "Auth form",
+  "wrong password or username": "wrong password or username",
+  "sing out": "sing out"
 }
