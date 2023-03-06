@@ -12,9 +12,9 @@ describe('loginSlice.test', () => {
     });
     test('test set password', () => {
         const state:DeepPartial<LoginSchema> = {
-            username: 'password',
+            password: 'password',
         };
         expect(loginReducer(state as LoginSchema, loginActions.setPassword('test password')))
-            .toEqual({ username: 'test password' });
+            .toEqual({ password: 'test password' });
     });
 });
