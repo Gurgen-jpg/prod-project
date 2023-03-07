@@ -2,5 +2,14 @@
   "users": [
     { "id": "1", "username": "admin", "password": "123" }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Admin",
+    "lastname": "AdminLastname",
+    "age": "30",
+    "currency": "USD",
+    "country": "USA",
+    "city": "New York",
+    "username": "admin",
+    "avatar": "https://unsplash.com/photos/6wEM5ZJWVDQ"
+  }
 }

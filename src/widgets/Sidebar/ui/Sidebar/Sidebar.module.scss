@@ -35,22 +35,10 @@
   gap: 20px;
 }
 
-.icon {
-  display: flex;
-  gap: 5px;
-  fill: var(--bg-color);
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
   display: flex;
   flex-direction: column;
   column-gap: 5px;
   align-items: center;
-
-  .link {
-    opacity: 0;
-    width: 0;
-    transition: opacity 0.2s;
-  }
 }

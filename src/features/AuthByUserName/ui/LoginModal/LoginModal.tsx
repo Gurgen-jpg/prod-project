@@ -18,7 +18,7 @@ export const LoginModal = (props:LoginModalProps) => {
             lazy
         >
             <Suspense fallback={<div>Loading...</div>}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

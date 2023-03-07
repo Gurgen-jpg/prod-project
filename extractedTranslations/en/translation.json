@@ -3,12 +3,16 @@
   "Auth form": "Auth form",
   "Home": "",
   "Page not found": "Page not found",
+  "ProfilePage": "ProfilePage",
   "Reload": "Reload",
   "Something went wrong": {
     "": "Something went wrong."
   },
   "about": "",
   "home": "",
+  "item": {
+    "": ""
+  },
   "language": "",
   "login": "login",
   "password": "password",

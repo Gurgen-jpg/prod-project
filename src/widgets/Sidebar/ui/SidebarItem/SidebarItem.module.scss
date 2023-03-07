@@ -1,0 +1,13 @@
+.icon {
+  display: flex;
+  gap: 5px;
+  fill: var(--bg-color);
+}
+
+.collapsed {
+  .link {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.2s;
+  }
+}
