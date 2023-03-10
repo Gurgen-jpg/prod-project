@@ -2,7 +2,7 @@ type Mods = Record<string, boolean | string>
 
 // cls - главный класс mods - объект с модами строка - ключ : значение flag (boolean)
 // additional - массив дополнительных классов
-export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
+export function classNames(cls: string, mods: Mods = {}, additional: (string | undefined)[] = []): string {
     return [
         cls,
         ...additional.filter(Boolean),

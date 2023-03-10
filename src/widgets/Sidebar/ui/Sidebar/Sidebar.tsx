@@ -25,11 +25,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <div
             data-testid="sidebar"
             className={
-                classNames(
-                    style.Sidebar,
-                    { [style.collapsed]: collapsed },
-                    [className],
-                )
+                classNames(style.Sidebar, { [style.collapsed]: collapsed }, [className])
             }
         >
             <Button

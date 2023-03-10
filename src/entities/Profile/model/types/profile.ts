@@ -14,6 +14,6 @@ export interface Profile {
 export interface ProfileSchema {
     data?: Profile;
     isLoading: boolean;
-    errors?: string;
+    error?: string;
     readonly: boolean;
 }

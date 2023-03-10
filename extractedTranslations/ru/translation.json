@@ -1,13 +1,17 @@
 {
   "About": "About",
   "Auth form": "Auth form",
+  "Edit": "Edit",
   "Home": "Home",
   "Page not found": "Page not found",
+  "Profile": "Profile",
   "ProfilePage": "ProfilePage",
   "Reload": "Reload",
   "Something went wrong": {
     "": "Something went wrong."
   },
+  "Your lastname": "Your lastname",
+  "Your name": "Your name",
   "about": "about",
   "home": "home",
   "item": {
