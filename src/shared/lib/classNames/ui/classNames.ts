@@ -1,4 +1,4 @@
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string | undefined>
 
 // cls - главный класс mods - объект с модами строка - ключ : значение flag (boolean)
 // additional - массив дополнительных классов

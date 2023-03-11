@@ -1,6 +1,6 @@
-import { classNames } from "shared/lib/classNames/ui/classNames";
+import { classNames, Mods } from "shared/lib/classNames/ui/classNames";
 import {
-    ButtonHTMLAttributes, FC, memo, ReactNode,
+    ButtonHTMLAttributes, memo, ReactNode,
 } from "react";
 import style from './Button.module.scss';
 
@@ -30,14 +30,14 @@ export const Button = memo((props: ButtonProps) => {
     const {
         children,
         className,
-        theme,
+        theme = ButtonTheme.OUTLINE,
         square,
-        size,
+        size = ButtonSize.MEDIUM,
         disabled,
         ...otherProps
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [style[theme]]: true,
         [style.square]: square,
         [style[size]]: true,

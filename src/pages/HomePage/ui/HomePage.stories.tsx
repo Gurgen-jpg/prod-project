@@ -12,7 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof HomePage>;
 
-const Template: ComponentStory<typeof HomePage> = (args) => <HomePage {...args} />;
+const Template: ComponentStory<typeof HomePage> = () => <HomePage />;
 export const HomePageLight = Template.bind({});
 HomePageLight.args = {};
 HomePageLight.decorators = [DecoratorTheme(Theme.LIGHT)];
