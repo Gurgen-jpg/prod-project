@@ -2,5 +2,12 @@
   "Profile": "Профиль",
   "Edit": "Редактировать",
   "Your name": "Ваше имя",
-  "Your lastname": "Ваша фамилия"
+  "Your lastname": "Ваша фамилия",
+  "Something went wrong": "Что-то пошло не так",
+  "Error in login data": "Ошибка в данных авторизации",
+  "Cancel": "Отменить",
+  "Save": "Сохранить",
+  "age": "Возраст",
+  "Your country": "Ваша страна",
+  "Username": "Никнейм"
 }

@@ -1,18 +1,24 @@
 {
   "About": "",
   "Auth form": "Auth form",
+  "Cancel": "Cancel",
   "Edit": "Edit",
+  "Error in login data": "Error in login data",
   "Home": "",
   "Page not found": "Page not found",
   "Profile": "Profile",
   "ProfilePage": "ProfilePage",
   "Reload": "Reload",
+  "Save": "Save",
   "Something went wrong": {
     "": "Something went wrong."
   },
+  "Username": "Username",
+  "Your country": "Your country",
   "Your lastname": "Your lastname",
   "Your name": "Your name",
   "about": "",
+  "age": "age",
   "home": "",
   "item": {
     "": ""
