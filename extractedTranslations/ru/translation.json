@@ -1,6 +1,7 @@
 {
   "About": "About",
   "Auth form": "Auth form",
+  "Avatar": "Avatar",
   "Cancel": "Cancel",
   "Edit": "Edit",
   "Error in login data": "Error in login data",
@@ -19,6 +20,7 @@
   "Your name": "Your name",
   "about": "about",
   "age": "age",
+  "avatar picture": "avatar picture",
   "home": "home",
   "item": {
     "": ""
