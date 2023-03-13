@@ -5,6 +5,10 @@ import { Loader } from "shared/ui/Loader/Loader";
 import { Mods } from "shared/lib/classNames/ui/classNames";
 import { TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { Avatar } from "shared/ui/Avatar/Avatar";
+import { Select } from "shared/ui/Select/Select";
+import { Currency, CurrencySelect } from "entities/Currency";
+import { Country } from "entities/Country/model/types/country";
+import { CountrySelect } from "entities/Country";
 import { Profile } from "../../model/types/profile";
 import style from './ProfileCard.module.scss';
 
@@ -15,6 +19,8 @@ interface ProfileCardProps {
     onChangeCity?: (value: string) => void;
     onChangeUsername?:(value:string) => void;
     onChangeAvatar?:(value:string) => void;
+    onChangeCurrency?:(value:Currency) => void;
+    onChangeCountry?:(value:Country) => void;
     className?: string;
     data?: Profile;
     isLoading?: boolean;
@@ -35,11 +41,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCity,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
     } = props;
     const { t } = useTranslation('profile');
 
     const mods: Mods = {
         [style.loading]: true,
+        [style.editing]: !readonly,
     };
 
     if (isLoading) {
@@ -64,7 +73,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <div className={classNames(style.ProfileCard, {}, [className])}>
+        <div className={classNames(style.ProfileCard, mods, [className])}>
             <div className={style.avatarWrapper}>
                 {data?.avatar && (
                     <Avatar
@@ -116,7 +125,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAvatar}
                     readOnly={readonly}
                 />
-
+                <CurrencySelect
+                    className={style.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={style.input}
+                    value={data?.country}
+                    onChange={onChangeCountry}
+                    readonly={readonly}
+                />
             </div>
         </div>
     );

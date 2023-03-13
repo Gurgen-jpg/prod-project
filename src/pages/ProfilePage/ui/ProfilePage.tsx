@@ -10,6 +10,8 @@ import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
 import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/getProfileForm";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 import style from './ProfilePage.module.scss';
 
 const reducers = {
@@ -47,14 +49,22 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             dispatch(profileActions.updateProfile({ age: Number(value) }));
         }
     }, [dispatch]);
-    const onChangeCountry = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value }));
+    const onChangeCity = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ city: value }));
     }, [dispatch]);
     const onChangeUsername = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value }));
+        dispatch(profileActions.updateProfile({ username: value }));
     }, [dispatch]);
     const onChangeAvatar = useCallback((value: string) => {
         dispatch((profileActions.updateProfile({ avatar: value })));
+    }, [dispatch]);
+
+    const onChangeCurrency = useCallback((value: Currency) => {
+        dispatch((profileActions.updateProfile({ currency: value })));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((value: Country) => {
+        dispatch((profileActions.updateProfile({ country: value })));
     }, [dispatch]);
 
     return (
@@ -69,9 +79,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCountry}
+                    onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>

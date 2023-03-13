@@ -8,11 +8,12 @@ export type SidebarItemType = {
     path: string;
     title: string;
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
+    authonly?: boolean;
 }
 
 export const SidebarItemsList:SidebarItemType[] = [
     {
-        path: RoutePath["/"],
+        path: RoutePath.main,
         title: "Home",
         Icon: HomeIcon,
     },
@@ -25,6 +26,7 @@ export const SidebarItemsList:SidebarItemType[] = [
         path: RoutePath.profile,
         title: "ProfilePage",
         Icon: ProfileIcon,
+        authonly: true,
     },
 
 ];
