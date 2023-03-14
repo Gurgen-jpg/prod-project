@@ -44,7 +44,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCurrency,
         onChangeCountry,
     } = props;
-    const { t } = useTranslation('profile');
+    const { t } = useTranslation('profilePage');
 
     const mods: Mods = {
         [style.loading]: true,
