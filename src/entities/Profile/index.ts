@@ -12,3 +12,4 @@ export { getProfileData } from './model/selectors/getProfileData/getProfileData'
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 export { getProperties } from './model/selectors/getProfileFirstname/getProfileFirstname';
 export { getProfileReadonly } from './model/selectors/getProfileReadOnly/getProfileReadonly';
+export { getProfileValidateError } from './model/selectors/getProfileValidateError/getProfileValidateError';

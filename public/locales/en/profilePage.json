@@ -11,5 +11,9 @@
   "Your country": "Your country",
   "Username": "Username",
   "Avatar": "Avatar",
-  "avatar picture": "avatar picture"
+  "avatar picture": "avatar picture",
+  "server error": "server error",
+  "country error": "country error",
+  "age error": "age error",
+  "user data error": "user data error"
 }

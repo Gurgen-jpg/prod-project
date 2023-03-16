@@ -11,5 +11,9 @@
   "Your country": "Ваша страна",
   "Username": "Никнейм",
   "Avatar": "Аватарка",
-  "avatar picture": "картинка"
+  "avatar picture": "картинка",
+  "server error": "серверная ошибка",
+  "country error": "неверно задана страна",
+  "age error": "ошибка в  возрасте",
+  "user data error": "данные пользователя некорректны"
 }

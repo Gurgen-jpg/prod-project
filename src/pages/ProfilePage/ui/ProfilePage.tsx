@@ -1,8 +1,13 @@
 import {
-    fetchProfileData, getProfileData, getProfileError, getProfileIsLoading,
-    getProfileReadonly, profileActions, ProfileCard, profileReducer,
+    fetchProfileData,
+    getProfileError,
+    getProfileIsLoading,
+    getProfileReadonly,
+    getProfileValidateError,
+    profileActions,
+    ProfileCard,
+    profileReducer,
 } from "entities/Profile";
-import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -12,6 +17,11 @@ import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/getProfileForm";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
+import { Text } from "shared/ui";
+import { TextTheme } from "shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
+import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { StringMap, TFunction } from "i18next";
 import style from './ProfilePage.module.scss';
 
 const reducers = {
@@ -24,12 +34,19 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
-
+    const { t } = useTranslation('profilePage');
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const errors = useSelector(getProfileValidateError);
 
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('server error'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('country error'),
+        [ValidateProfileError.INCORRECT_AGE]: t('age error'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('user data error'),
+    };
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch]);
@@ -70,6 +87,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(style.ProfilePage, {}, [className])}>
                 <ProfilePageHeader />
+                {errors?.length && errors.map((err) => (
+                    // @ts-ignore
+                    <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+                ))}
                 <ProfileCard
                     data={form}
                     isLoading={isLoading}

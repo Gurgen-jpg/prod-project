@@ -22,7 +22,9 @@
   "Your name": "Your name",
   "about": "",
   "age": "age",
+  "age error": "age error",
   "avatar picture": "avatar picture",
+  "country error": "country error",
   "home": "",
   "item": {
     "": ""
@@ -30,8 +32,10 @@
   "language": "",
   "login": "login",
   "password": "password",
+  "server error": "server error",
   "sing in": "sing in",
   "sing out": "sing out",
+  "user data error": "user data error",
   "wrong password or username": "",
   "Перезагрузить": "Перезагрузить",
   "введите имя": "введите имя"
