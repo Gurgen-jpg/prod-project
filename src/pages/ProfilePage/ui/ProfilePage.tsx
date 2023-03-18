@@ -21,7 +21,6 @@ import { Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
-import { StringMap, TFunction } from "i18next";
 import style from './ProfilePage.module.scss';
 
 const reducers = {
@@ -48,7 +47,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('user data error'),
     };
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value: string) => {

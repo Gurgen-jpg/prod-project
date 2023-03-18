@@ -9,7 +9,7 @@
   "profile": {
     "firstname": "Admin",
     "lastname": "AdminLastname",
-    "age": "30",
+    "age": 30,
     "currency": "USD",
     "country": "USA",
     "city": "New York",

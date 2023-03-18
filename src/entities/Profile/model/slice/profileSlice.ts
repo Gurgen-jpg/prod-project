@@ -32,7 +32,7 @@ export const profileSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
-                state.error = undefined;
+                state.validateError = undefined;
                 state.isLoading = true;
             })
             .addCase(fetchProfileData.fulfilled, (
@@ -40,8 +40,8 @@ export const profileSlice = createSlice({
                 action: PayloadAction<Profile>,
             ) => {
                 state.isLoading = false;
-                state.data = action.payload;
-                state.form = action.payload;
+                state.data = { ...action.payload, age: Number(action.payload.age) };
+                state.form = { ...action.payload, age: Number(action.payload.age) };
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
                 state.isLoading = false;

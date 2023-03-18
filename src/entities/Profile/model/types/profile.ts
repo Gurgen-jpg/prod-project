@@ -4,7 +4,7 @@ import { Country } from "entities/Country/model/types/country";
 export interface Profile {
     "firstname"?: string;
     "lastname"?: string;
-    "age"?: number,
+    "age"?: number | string;
     "currency"?: Currency,
     "country"?: Country,
     "city"?: string;
