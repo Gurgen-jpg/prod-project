@@ -19,32 +19,17 @@ export const AppRouter = memo(() => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly
-                    ? (
-                        <RequireAuth>
-                            {element}
-                        </RequireAuth>
-                    )
-                    : { element }}
+                element={route.authOnly ? (
+                    <RequireAuth>
+                        {element}
+                    </RequireAuth>
+                ) : element}
             />
         );
     }, []);
     return (
         <Routes>
             {Object.values(routeConfig).map(renderWithWrapper)}
-            {/* {routes.map(({ path, element }) => ( */}
-            {/*    <Route */}
-            {/*        key={path} */}
-            {/*        path={path} */}
-            {/*        element={( */}
-            {/*            <Suspense fallback={<PageLoader />}> */}
-            {/*                <div className="page-wrapper"> */}
-            {/*                    {element} */}
-            {/*                </div> */}
-            {/*            </Suspense> */}
-            {/*        )} */}
-            {/*    /> */}
-            {/* ))} */}
         </Routes>
     );
 });

@@ -16,9 +16,9 @@ export const SidebarItem = ({ item, collapsed }:SidebarItemProps) => {
     const { t } = useTranslation();
     const isAuth = useSelector(getUserAuthData);
 
-    // if (item.authonly && !isAuth) {
-    //     return null;
-    // }
+    if (item.authonly && !isAuth) {
+        return null;
+    }
 
     return (
         <AppLink
