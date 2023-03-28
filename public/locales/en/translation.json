@@ -13,5 +13,7 @@
   "Auth form": "Auth form",
   "wrong password or username": "wrong password or username",
   "sing out": "sing out",
-  "ProfilePage": "ProfilePage"
+  "ProfilePage": "ProfilePage",
+  "Article is not found": "Article is not found",
+  "Some error while loading article": "Some error while loading article"
 }

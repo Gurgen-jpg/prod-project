@@ -13,5 +13,7 @@
   "Auth form": "Форма авторизации",
   "wrong password or username": "неверный пароль или имя пользователя",
   "sing out": "выйти",
-  "ProfilePage": "Страница профиля"
+  "ProfilePage": "Страница профиля",
+  "Article is not found": "Статья не найдена",
+  "Some error while loading article": "Ошибка при загрузке статьи"
 }

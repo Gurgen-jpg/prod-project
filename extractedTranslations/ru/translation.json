@@ -1,5 +1,6 @@
 {
   "About": "About",
+  "Article is not found": "Article is not found",
   "Auth form": "Auth form",
   "Avatar": "Avatar",
   "Cancel": "Cancel",
@@ -13,6 +14,7 @@
   "ProfilePage": "ProfilePage",
   "Reload": "Reload",
   "Save": "Save",
+  "Some error while loading article": "Some error while loading article",
   "Something went wrong": {
     "": "Something went wrong."
   },

@@ -7,12 +7,14 @@ import { LoginSchema } from "features/AuthByUserName";
 import { AxiosInstance } from "axios";
 import { To } from "history";
 import { NavigateOptions } from "react-router";
+import { ArticleDetailsSchema } from "entities/Article";
 
 export interface StateSchema {
     user: UserSchema;
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKeys = keyof StateSchema;
