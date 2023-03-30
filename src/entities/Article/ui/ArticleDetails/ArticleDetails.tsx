@@ -7,11 +7,8 @@ import { useSelector } from "react-redux";
 import { Text } from "shared/ui";
 import { TextAlign } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from "../../model/selectors/articleDetails";
+import { Avatar } from "shared/ui/Avatar/Avatar";
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "../../model/selectors/articleDetails";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slices/articleDetailSlice";
 import style from './ArticleDetails.module.scss';
@@ -25,11 +22,14 @@ const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({
+    className,
+    id,
+}: ArticleDetailsProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    // const isLoading = useSelector(getArticleDetailsIsLoading);
-    const isLoading = true;
+    const isLoading = useSelector(getArticleDetailsIsLoading);
+    // const isLoading = true;
     const error = useSelector(getArticleDetailsError);
     const data = useSelector(getArticleDetailsData);
 
@@ -58,7 +58,13 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             />
         );
     } else {
-        content = <div>ArticleDetails</div>;
+        content = (
+            <>
+                <Avatar size={200} src={data?.img} alt={data?.title} className={style.avatar} />
+                <Text title={data?.title} text={data?.subtitle} />
+
+            </>
+        );
     }
 
     return (

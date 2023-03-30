@@ -10,7 +10,7 @@ interface AvatarProps {
     size?: number;
 }
 
-export const Avatar = (props:AvatarProps) => {
+export const Avatar = (props: AvatarProps) => {
     const {
         className,
         src,
@@ -22,7 +22,7 @@ export const Avatar = (props:AvatarProps) => {
         height: size,
     }), []);
 
-    const mods:Mods = {};
+    const mods: Mods = {};
     return (
         <img
             className={classNames(style.Avatar, mods, [className])}
