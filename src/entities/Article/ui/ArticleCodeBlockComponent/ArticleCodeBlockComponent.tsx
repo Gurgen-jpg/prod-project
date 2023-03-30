@@ -1,15 +1,17 @@
-import { classNames } from 'shared/lib/classNames';
 import { memo } from "react";
-import style from './ArticleCodeBlockComponent.module.scss';
+import { Code } from "shared/ui/Code/Code";
+import { ArticleCodeBlock } from "../../model/types/article";
 
 interface ArticleCodeBlockComponentProps {
     className?: string;
+    block?: ArticleCodeBlock;
 }
 
-export const ArticleCodeBlockComponent = memo(({ className }: ArticleCodeBlockComponentProps) => {
+export const ArticleCodeBlockComponent = memo(({
+    className,
+    block,
+}: ArticleCodeBlockComponentProps) => {
     return (
-        <div className={classNames(style.ArticleCodeBlockComponent, {}, [className])}>
-            ArticleCodeBlockComponent
-        </div>
+        <Code codeText={block?.code} />
     );
 });

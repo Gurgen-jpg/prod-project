@@ -15,11 +15,7 @@ import { ArticleCodeBlockComponent } from "entities/Article/ui/ArticleCodeBlockC
 import { ArticleImageBlockComponent } from "entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from "../../model/selectors/articleDetails";
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "../../model/selectors/articleDetails";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from "../../model/slices/articleDetailSlice";
 import style from './ArticleDetails.module.scss';
@@ -33,7 +29,10 @@ const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 
-export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+export const ArticleDetails = memo(({
+    className,
+    id,
+}: ArticleDetailsProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -43,18 +42,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent className={style.block} />;
+            return <ArticleCodeBlockComponent key={block.id} className={style.block} block={block} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent className={style.block} />;
+            return <ArticleImageBlockComponent key={block.id} className={style.block} block={block} />;
         case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent className={style.block} block={block} />;
+            return <ArticleTextBlockComponent key={block.id} className={style.block} block={block} />;
         default:
             return null;
         }
     }, []);
 
     useEffect(() => {
-        dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
     }, [dispatch]);
 
     let content;
