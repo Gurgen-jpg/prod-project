@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
 import React from "react";
 import { DecoratorTheme } from "shared/config/storybook/ThemeDecorator/DecoratorTheme";
-import { Text, TextTheme } from "./Text";
+import { Text, TextSize, TextTheme } from "./Text";
 
 export default {
     title: 'Shared/Text',
@@ -65,3 +65,22 @@ TextErrorDark.args = {
     theme: TextTheme.ERROR,
 };
 TextErrorDark.decorators = [DecoratorTheme(Theme.DARK)];
+
+export const TextSizeM = Template.bind({});
+TextSizeM.args = {
+    title: 'Title',
+    text: 'webpack-hot-middlewarewebpack built preview 27d2383cc53dab1958ce in 254',
+    size: TextSize.M,
+};
+export const TextSizeL = Template.bind({});
+TextSizeL.args = {
+    title: 'Title',
+    text: 'webpack-hot-middlewarewebpack built preview 27d2383cc53dab1958ce in 254',
+    size: TextSize.L,
+};
+export const TextSizeXL = Template.bind({});
+TextSizeXL.args = {
+    title: 'Title',
+    text: 'webpack-hot-middlewarewebpack built preview 27d2383cc53dab1958ce in 254',
+    size: TextSize.XL,
+};
