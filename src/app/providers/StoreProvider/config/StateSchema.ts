@@ -8,6 +8,8 @@ import { AxiosInstance } from "axios";
 import { To } from "history";
 import { NavigateOptions } from "react-router";
 import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailCommentsSchema } from "pages/ArticlesDetailsPage";
+import { AddNewCommentSchema } from "features/addNewComment";
 
 export interface StateSchema {
     user: UserSchema;
@@ -15,6 +17,8 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articlesDetailComments?: ArticleDetailCommentsSchema;
+    addNewComment?: AddNewCommentSchema;
 }
 
 export type StateSchemaKeys = keyof StateSchema;
@@ -26,7 +30,7 @@ export interface ReducerManager {
     remove: (key: StateSchemaKeys) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 

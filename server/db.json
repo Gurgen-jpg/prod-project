@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,54 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dfdf",
+      "id": "up_TPcB"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1212121",
+      "id": "ZBH_RG9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "выывыв",
+      "id": "emGtVQV"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sdddsdsdsd",
+      "id": "cVtOngy"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "try to send new comment",
+      "id": "ckjPFCi"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "try to send new comment",
+      "id": "lfFw9W3"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "new comment",
+      "id": "20EyCXD"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "nymWoS9"
     }
   ],
   "users": [
@@ -107,23 +157,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://weblinks.ru/wp-content/uploads/2021/04/3zeynnx6ija.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://img.freepik.com/premium-photo/sute-girl-hacker-with-laptop-avatar-cartoon-style-black-background-generated-ai_88188-3324.jpg?w=1380"
     }
   ],
-  "profile": {
-    "firstname": "Admin",
-    "lastname": "AdminLastname",
-    "age": 30,
-    "currency": "USD",
-    "country": "USA",
-    "city": "New York",
-    "username": "admin",
-    "avatar": "https://weblinks.ru/wp-content/uploads/2021/04/3zeynnx6ija.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Admin",
+      "lastname": "AdminLastname",
+      "age": 30,
+      "currency": "USD",
+      "country": "USA",
+      "city": "New York",
+      "username": "admin",
+      "avatar": "https://weblinks.ru/wp-content/uploads/2021/04/3zeynnx6ija.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "hacker user",
+      "lastname": "User1Lastname",
+      "age": 40,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user1",
+      "avatar": "https://img.freepik.com/premium-photo/sute-girl-hacker-with-laptop-avatar-cartoon-style-black-background-generated-ai_88188-3324.jpg?w=1380"
+    }
+  ]
 }

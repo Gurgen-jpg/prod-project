@@ -16,5 +16,8 @@
   "ProfilePage": "ProfilePage",
   "Article is not found": "Article is not found",
   "Some error while loading article": "Some error while loading article",
-  "copy": "copy"
+  "copy": "copy",
+  "Comments": "Comments",
+  "comment text": "comment text",
+  "send": "send"
 }

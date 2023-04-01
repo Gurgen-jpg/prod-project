@@ -2,13 +2,14 @@ import { Currency } from "entities/Currency/model/types/currency";
 import { Country } from "entities/Country/model/types/country";
 
 export interface Profile {
+    "id"?: string;
     "firstname"?: string;
     "lastname"?: string;
     "age"?: number | string;
     "currency"?: Currency,
     "country"?: Country,
     "city"?: string;
-    "username"?:string;
+    "username"?: string;
     "avatar"?: string;
 }
 
@@ -21,6 +22,7 @@ export enum ValidateProfileError {
 }
 
 export interface ProfileSchema {
+    id?: string;
     data?: Profile;
     form?: Profile;
     isLoading: boolean;

@@ -1,17 +1,10 @@
 import {
-    fetchProfileData,
-    getProfileError,
-    getProfileIsLoading,
-    getProfileReadonly,
-    getProfileValidateError,
-    profileActions,
-    ProfileCard,
-    profileReducer,
+    fetchProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateError, profileActions, ProfileCard, profileReducer,
 } from "entities/Profile";
 import { classNames } from "shared/lib/classNames";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
 import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/getProfileForm";
@@ -21,6 +14,8 @@ import { Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { useParams } from "react-router-dom";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import style from './ProfilePage.module.scss';
 
 const reducers = {
@@ -34,6 +29,7 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profilePage');
+    const { id } = useParams<{ id: string }>();
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
@@ -46,11 +42,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('age error'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('user data error'),
     };
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value }));
@@ -61,8 +58,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const onChangeAge = useCallback((value: string) => {
         if (value === '') {
             dispatch(profileActions.updateProfile({ age: Number(0) }));
-        } else
-        if (parseInt(value, 10)) {
+        } else if (parseInt(value, 10)) {
             dispatch(profileActions.updateProfile({ age: Number(value) }));
         }
     }, [dispatch]);
