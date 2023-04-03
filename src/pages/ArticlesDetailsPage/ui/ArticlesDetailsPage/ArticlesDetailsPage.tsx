@@ -1,19 +1,21 @@
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailCommentsSliceReducer, getArticleComments } from "pages/ArticlesDetailsPage/model/slice/articleDetailsCommentsSlice";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { fetchArticleCommentById } from "pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import { addCommentForArticle } from "pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 import { ArticleDetails } from "entities/Article";
 import { AddNewComment } from "features/addNewComment";
-import { Text } from "shared/ui";
+import { Button, Text } from "shared/ui";
 import { useSelector } from "react-redux";
-import { getArticleCommentsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading";
 import { CommentList } from "entities/Comment/ui/CommentList/CommentList";
+import { ButtonTheme } from "shared/ui/Button/Button";
+import { RoutePath } from "shared/config/routConfig/routConfig";
+import { getArticleCommentsIsLoading } from "../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
+import { fetchArticleCommentById } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { articleDetailCommentsSliceReducer, getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";
 import style from './ArticlesDetailsPage.module.scss';
 
 interface ArticlesDetailsPageProps {
@@ -30,6 +32,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchArticleCommentById(id));
@@ -38,6 +41,10 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const sendNewArticleHandler = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
+
+    const onGetBack = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     if (!id) {
         return (
@@ -49,6 +56,12 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(style.ArticlesDetailsPage, {}, [className])}>
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onGetBack}
+                >
+                    {t('Get back to articles')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments')} className={style.commentTitle} />
                 <AddNewComment onSendNewComment={sendNewArticleHandler} />

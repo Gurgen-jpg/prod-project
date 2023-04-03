@@ -1,12 +1,15 @@
-import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
-import { memo } from "react";
-import { classNames } from "shared/lib/classNames";
+import React from "react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Article, ArticleView } from "entities/Article";
-import style from './ArticlesPage.module.scss';
+import { ArticleListItem } from "./ArticleListItem";
 
-interface ArticlesPageProps {
-    className?: string;
-}
+export default {
+    title: 'entities/ArticleListItem',
+    component: ArticleListItem,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleListItem>;
 
 const article = {
     id: "1",
@@ -92,22 +95,15 @@ const article = {
     ],
 } as Article;
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-    return (
-        <div className={classNames(style.ArticlesPage, {}, [className])}>
-            <ArticleList
-                isLoading
-                viewMode={ArticleView.BIG}
-                articles={
-                    new Array(16)
-                        .fill(0)
-                        .map((item, index) => ({
-                            ...article,
-                            id: String(index),
-                        }))
-                }
-            />
-        </div>
-    );
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+
+export const SMALL = Template.bind({});
+SMALL.args = {
+    article,
+    articleView: ArticleView.SMALL,
 };
-export default memo(ArticlesPage);
+export const BIG = Template.bind({});
+BIG.args = {
+    article,
+    articleView: ArticleView.BIG,
+};

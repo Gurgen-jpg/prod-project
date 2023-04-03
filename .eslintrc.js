@@ -55,6 +55,7 @@ module.exports = {
         'react/no-unused-prop-types': 'off',
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         _IS_DEV_: true,

@@ -1,12 +1,7 @@
-import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
-import { memo } from "react";
-import { classNames } from "shared/lib/classNames";
+import React from "react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Article, ArticleView } from "entities/Article";
-import style from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-    className?: string;
-}
+import { ArticleList } from "./ArticleList";
 
 const article = {
     id: "1",
@@ -92,22 +87,48 @@ const article = {
     ],
 } as Article;
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-    return (
-        <div className={classNames(style.ArticlesPage, {}, [className])}>
-            <ArticleList
-                isLoading
-                viewMode={ArticleView.BIG}
-                articles={
-                    new Array(16)
-                        .fill(0)
-                        .map((item, index) => ({
-                            ...article,
-                            id: String(index),
-                        }))
-                }
-            />
-        </div>
-    );
+export default {
+    title: 'entities/ArticleList',
+    component: ArticleList,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const LoadingBIG = Template.bind({});
+LoadingBIG.args = {
+    articles: [],
+    viewMode: ArticleView.BIG,
+    isLoading: true,
 };
-export default memo(ArticlesPage);
+export const LoadingSMALL = Template.bind({});
+LoadingSMALL.args = {
+    articles: [],
+    viewMode: ArticleView.SMALL,
+    isLoading: true,
+};
+
+export const NormalBIG = Template.bind({});
+NormalBIG.args = {
+    articles: new Array(16)
+        .fill(0)
+        .map((item, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    viewMode: ArticleView.BIG,
+    isLoading: false,
+};
+export const NormalSMALL = Template.bind({});
+NormalSMALL.args = {
+    articles: new Array(16)
+        .fill(0)
+        .map((item, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    viewMode: ArticleView.SMALL,
+    isLoading: false,
+};
