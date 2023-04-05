@@ -9,7 +9,7 @@ export interface ArticleListProps {
     className?: string;
     articles: Array<Article>;
     isLoading?: boolean;
-    viewMode: ArticleView;
+    viewMode?: ArticleView;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3).fill(0)

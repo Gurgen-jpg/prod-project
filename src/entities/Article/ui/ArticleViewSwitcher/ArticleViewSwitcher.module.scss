@@ -1,0 +1,10 @@
+.ArticleViewSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.selected {
+  fill: var(--secondary-color);
+  color: black;
+}
