@@ -7,7 +7,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleDetails } from "entities/Article";
 import { AddNewComment } from "features/addNewComment";
-import { Button, Text } from "shared/ui";
+import { Button, Page, Text } from "shared/ui";
 import { useSelector } from "react-redux";
 import { CommentList } from "entities/Comment/ui/CommentList/CommentList";
 import { ButtonTheme } from "shared/ui/Button/Button";
@@ -55,7 +55,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(style.ArticlesDetailsPage, {}, [className])}>
+            <Page className={classNames(style.ArticlesDetailsPage, {}, [className])}>
                 <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={onGetBack}
@@ -66,7 +66,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
                 <Text title={t('Comments')} className={style.commentTitle} />
                 <AddNewComment onSendNewComment={sendNewArticleHandler} />
                 <CommentList comments={comments} isLoading={isLoading} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -32,7 +32,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(style.Navbar, {}, [className])}>
+            <header className={classNames(style.Navbar, {}, [className])}>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={style.link}
@@ -40,12 +40,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('sing out')}
                 </Button>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(style.Navbar, {}, [className])}>
+        <header className={classNames(style.Navbar, {}, [className])}>
 
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
@@ -60,6 +60,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     isOpen={isAuthModal}
                 />
             )}
-        </div>
+        </header>
     );
 });

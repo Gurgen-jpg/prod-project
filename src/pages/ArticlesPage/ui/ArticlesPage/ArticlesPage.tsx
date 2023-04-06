@@ -6,7 +6,10 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ArticleView, ArticleViewSwitcher } from "entities/Article";
-import { fetchArticleList } from "../../model/services/fetchArticleList";
+import { Page } from "shared/ui";
+import { getArticlesPageListPageNum } from "pages/ArticlesPage/model/selectors/getArticlesPageListPageNum/getArticlesPageListPageNum";
+import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchArticlePageNextPage/fetchArticlePageNextPage";
+import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList";
 import { getArticlesPageIsLoading } from "../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
 import { getArticlesPageError } from "../../model/selectors/getArticlesPageError/getArticlesPageError";
 import style from './ArticlesPage.module.scss';
@@ -25,26 +28,34 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const views = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageError);
+    const page = useSelector(getArticlesPageListPageNum);
     const dispatch = useAppDispatch();
-    useInitialEffect(() => {
-        dispatch(fetchArticleList());
-        dispatch(articlePageSliceActions.initState());
-    });
 
-    const onClickView = useCallback((newView: ArticleView) => {
-        dispatch(articlePageSliceActions.setView(newView));
+    const onChangeView = useCallback((view: ArticleView) => {
+        dispatch(articlePageSliceActions.setView(view));
     }, [dispatch]);
+
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(articlePageSliceActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(style.ArticlesPage, {}, [className])}>
-                <ArticleViewSwitcher view={views} onViewClick={onClickView} />
+            <Page onScrollEnd={onLoadNextPart} className={classNames(style.ArticlesPage, {}, [className])}>
+                <ArticleViewSwitcher view={views} onViewClick={onChangeView} />
                 <ArticleList
                     isLoading={isLoading}
                     viewMode={views}
                     articles={articlesList}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

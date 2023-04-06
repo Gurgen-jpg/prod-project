@@ -10,7 +10,7 @@ import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/getProfileForm";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
-import { Text } from "shared/ui";
+import { Page, Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
@@ -82,7 +82,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(style.ProfilePage, {}, [className])}>
+            <Page className={classNames(style.ProfilePage, {}, [className])}>
                 <ProfilePageHeader />
                 {errors?.length && errors.map((err) => (
                     // @ts-ignore
@@ -102,7 +102,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -23,11 +23,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
     } = props;
 
-    const renderArticle = articles.map((article) => {
-        return (
-            <ArticleListItem article={article} articleView={viewMode} />
-        );
-    });
+    const renderArticle = (article: Article) => (
+        <ArticleListItem article={article} articleView={viewMode} key={article.id} />
+    );
 
     if (isLoading) {
         return (
@@ -38,11 +36,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
     return (
         <div className={classNames(style.ArticleList, {}, [className, style[viewMode]])}>
-            {
-                articles.length > 0
-                    ? renderArticle
-                    : null
-            }
+            {articles.length > 0
+                ? articles.map(renderArticle)
+                : null}
+            {isLoading && getSkeletons(viewMode)}
         </div>
     );
 });
