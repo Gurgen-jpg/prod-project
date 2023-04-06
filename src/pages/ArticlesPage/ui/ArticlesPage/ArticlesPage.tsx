@@ -7,14 +7,12 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ArticleView, ArticleViewSwitcher } from "entities/Article";
 import { Page } from "shared/ui";
-import { getArticlesPageListPageNum } from "pages/ArticlesPage/model/selectors/getArticlesPageListPageNum/getArticlesPageListPageNum";
-import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchArticlePageNextPage/fetchArticlePageNextPage";
-import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList";
+import { fetchNextArticlesPage } from "../../model/services/fetchArticlePageNextPage/fetchArticlePageNextPage";
 import { getArticlesPageIsLoading } from "../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
-import { getArticlesPageError } from "../../model/selectors/getArticlesPageError/getArticlesPageError";
 import style from './ArticlesPage.module.scss';
 import { articlePageSliceActions, articlePageSliceReducer, getArticle } from "../../model/slices/articlePageSlice";
 import { getArticlesPageView } from "../../model/selectors/getArticlesPageView/getArticlesPageView";
+import { fetchInitArticlesPage } from "../../model/services/fetchInitArticlesPage/fetchInitArticlesPage";
 
 interface ArticlesPageProps {
     className?: string;
@@ -27,8 +25,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const articlesList = useSelector(getArticle.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const views = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
-    const page = useSelector(getArticlesPageListPageNum);
     const dispatch = useAppDispatch();
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -40,10 +36,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlePageSliceActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
+        dispatch(fetchInitArticlesPage());
     });
 
     return (
