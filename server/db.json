@@ -535,6 +535,12 @@
       "userId": "2",
       "text": "hello world",
       "id": "nymWoS9"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ваыввыв",
+      "id": "-MI7FEk"
     }
   ],
   "users": [

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ArticleView, ArticleViewSwitcher } from "entities/Article";
-import { Page } from "shared/ui";
+import { Page } from "widgets/Page";
 import { fetchNextArticlesPage } from "../../model/services/fetchArticlePageNextPage/fetchArticlePageNextPage";
 import { getArticlesPageIsLoading } from "../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
 import style from './ArticlesPage.module.scss';

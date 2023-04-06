@@ -7,11 +7,12 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleDetails } from "entities/Article";
 import { AddNewComment } from "features/addNewComment";
-import { Button, Page, Text } from "shared/ui";
+import { Button, Text } from "shared/ui";
 import { useSelector } from "react-redux";
 import { CommentList } from "entities/Comment/ui/CommentList/CommentList";
 import { ButtonTheme } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routConfig/routConfig";
+import { Page } from "widgets/Page";
 import { getArticleCommentsIsLoading } from "../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchArticleCommentById } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";

@@ -10,12 +10,13 @@ import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { getProfileForm } from "entities/Profile/model/selectors/getProfileForm/getProfileForm";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
-import { Page, Text } from "shared/ui";
+import { Text } from "shared/ui";
 import { TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { useParams } from "react-router-dom";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { Page } from "widgets/Page";
 import style from './ProfilePage.module.scss';
 
 const reducers = {

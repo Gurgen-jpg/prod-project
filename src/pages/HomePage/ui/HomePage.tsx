@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/ui/Input";
-import { Page } from "shared/ui";
+import { Page } from "widgets/Page";
 
 const HomePage = () => {
     const { t } = useTranslation('home');
