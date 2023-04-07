@@ -21,5 +21,12 @@
   "comment text": "comment text",
   "send": "send",
   "continue reading": "continue reading",
-  "Get back to articles": "Get back to articles"
+  "Get back to articles": "Get back to articles",
+  "sort by": "sort by",
+  "by": "by",
+  "created at": "created at",
+  "title": "title",
+  "descending": "descending",
+  "ascending": "ascending",
+  "views": "views"
 }

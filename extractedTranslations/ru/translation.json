@@ -28,12 +28,16 @@
   "about": "about",
   "age": "age",
   "age error": "age error",
+  "ascending": "ascending",
   "avatar picture": "avatar picture",
+  "by": "by",
   "comment text": "comment text",
   "comments": "comments",
   "continue reading": "continue reading",
   "copy": "copy",
   "country error": "country error",
+  "created at": "created at",
+  "descending": "descending",
   "home": "home",
   "item": {
     "": ""
@@ -45,7 +49,10 @@
   "server error": "server error",
   "sing in": "sing in",
   "sing out": "sing out",
+  "sort by": "sort by",
+  "title": "title",
   "user data error": "user data error",
+  "views": "views",
   "wrong password or username": "wrong password or username",
   "Перезагрузить": "Перезагрузить",
   "введите имя": "введите имя"
