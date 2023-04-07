@@ -28,5 +28,10 @@
   "title": "title",
   "descending": "descending",
   "ascending": "ascending",
-  "views": "views"
+  "views": "views",
+  "all": "all",
+  "it": "it",
+  "economics": "economics",
+  "science": "science",
+  "No articles": "No articles"
 }

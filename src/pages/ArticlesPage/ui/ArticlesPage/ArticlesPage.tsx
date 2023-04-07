@@ -8,6 +8,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { Page } from "widgets/Page";
 import { getArticlesPageView } from "pages/ArticlesPage/model/selectors/getArticlesPageView/getArticlesPageView";
 import { ArticlePageFilter } from "pages/ArticlesPage/ui/ArticlePageFilter/ArticlePageFilter";
+import { useSearchParams } from "react-router-dom";
 import { fetchNextArticlesPage } from "../../model/services/fetchArticlePageNextPage/fetchArticlePageNextPage";
 import { getArticlesPageIsLoading } from "../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";
 import style from './ArticlesPage.module.scss';
@@ -26,13 +27,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const views = useSelector(getArticlesPageView);
     const dispatch = useAppDispatch();
-
+    const [searchParams] = useSearchParams();
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(fetchInitArticlesPage());
+        dispatch(fetchInitArticlesPage(searchParams));
     });
 
     return (
