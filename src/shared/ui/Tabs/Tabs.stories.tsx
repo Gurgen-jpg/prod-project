@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { ArticleType } from "entities/Article/model/types/article";
 import { Tabs } from "./Tabs";
 
 export default {
@@ -18,17 +19,17 @@ Normal.args = {
     tabs: [
         {
             content: 'Tab 1',
-            value: 'tab1',
+            value: ArticleType.IT,
         },
         {
             content: 'Tab 2',
-            value: 'tab2',
+            value: ArticleType.SCIENCE,
         },
         {
             content: 'Tab 3',
-            value: 'tab3',
+            value: ArticleType.ECONOMICS,
         },
     ],
-    value: 'tab1',
+    value: ArticleType.IT,
     onTabClick: action('onTabClick'),
 };

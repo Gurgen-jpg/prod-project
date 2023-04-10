@@ -11,10 +11,12 @@
   "Error in login data": "Error in login data",
   "Get back to articles": "Get back to articles",
   "Home": "",
+  "No articles": "No articles",
   "No comments": "No comments",
   "Page not found": "Page not found",
   "Profile": "Profile",
   "ProfilePage": "ProfilePage",
+  "Recommendation": "Recommendation",
   "Reload": "Reload",
   "Save": "Save",
   "Some error while loading article": "Some error while loading article",
@@ -59,6 +61,5 @@
   "views": "views",
   "wrong password or username": "",
   "Перезагрузить": "Перезагрузить",
-  "введите имя": "введите имя",
-  "No articles": "No articles"
+  "введите имя": "введите имя"
 }

@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/ui/classNames";
 import { Link, LinkProps } from "react-router-dom";
-import { FC, memo, ReactNode } from 'react';
+import { HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
 import style from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -13,6 +13,7 @@ interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme;
     children?: ReactNode;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
