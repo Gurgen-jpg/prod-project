@@ -5,10 +5,17 @@ import { Article } from "entities/Article";
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
     'articleDetails/fetchArticleById',
     async (articleId, thunkApi) => {
-        const { rejectWithValue, extra } = thunkApi;
+        const {
+            rejectWithValue,
+            extra,
+        } = thunkApi;
         try {
             // const response = await extra.api.get<Profile>(`/profile`);
-            const response = await extra.api.get(`/articles/${articleId}`);
+            const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+                params: {
+                    _expand: 'user',
+                },
+            });
 
             if (!response.data) {
                 throw new Error();

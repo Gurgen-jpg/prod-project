@@ -1,21 +1,20 @@
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleDetails } from "entities/Article";
 import { AddNewComment } from "features/addNewComment";
-import { Button, Text } from "shared/ui";
+import { Text } from "shared/ui";
 import { useSelector } from "react-redux";
 import { CommentList } from "entities/Comment/ui/CommentList/CommentList";
-import { ButtonTheme } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routConfig/routConfig";
 import { Page } from "widgets/Page";
 import { TextSize } from "shared/ui/Text/Text";
 import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
 import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slice";
+import { ArticleDetailsPageHeader } from "pages/ArticlesDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { getRecommendation } from "../../model/slice/articleDetailsRecommendationSlice";
 import { getArticleRecommendationIsLoading } from "../../model/selectors/articleRecommendation/articleRecommendationSelectors";
 import { fetchArticleRecommendation } from "../../model/services/fetchRecommendations/fetchRecommendations";
@@ -41,7 +40,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchArticleCommentById(id));
@@ -51,10 +49,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const sendNewArticleHandler = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
-
-    const onGetBack = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     if (!id) {
         return (
@@ -66,12 +60,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(style.ArticlesDetailsPage, {}, [className])}>
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onGetBack}
-                >
-                    {t('Get back to articles')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text size={TextSize.L} title={t('Recommendation')} />
                 <ArticleList

@@ -5,6 +5,10 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from "features/AuthByUserName";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { AppLink, Text } from "shared/ui";
+import { TextSize, TextTheme } from "shared/ui/Text/Text";
+import { RoutePath } from 'shared/config/routConfig/routConfig';
+import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import style from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,6 +37,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(style.Navbar, {}, [className])}>
+                <Text
+                    title={t('Gurgen app')}
+                    size={TextSize.L}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={style.createArticleLink}
+                >
+                    {t('Create article')}
+                </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={style.link}

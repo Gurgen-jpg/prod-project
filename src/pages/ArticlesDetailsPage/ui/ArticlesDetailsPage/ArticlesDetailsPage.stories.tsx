@@ -7,7 +7,7 @@ import ArticlesDetailsPage from "pages/ArticlesDetailsPage/ui/ArticlesDetailsPag
 import { StoreDecorator } from 'shared/config/storybook/WithStore/WithStore';
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/ArticleDetailsPageHeader',
     component: ArticlesDetailsPage,
     argTypes: {
         backgroundColor: { control: 'color' },
