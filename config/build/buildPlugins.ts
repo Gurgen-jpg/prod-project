@@ -3,10 +3,14 @@ import webpack, { WebpackPluginInstance } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from "copy-webpack-plugin";
 import { BuildOptions } from "./types/config";
 
 export function buildPlugins({
-    paths, isDev, apiUrl, project,
+    paths,
+    isDev,
+    apiUrl,
+    project,
 }: BuildOptions): WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -24,6 +28,14 @@ export function buildPlugins({
             __PROJECT__: JSON.stringify(project),
         }),
         new ReactRefreshWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: paths.locales,
+                    to: paths.buildLocales,
+                },
+            ],
+        }),
     ];
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
